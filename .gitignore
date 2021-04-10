@@ -1,0 +1,10 @@
+.vscode
+/Server/*
+!.gitignore
+!/Server/.dockerignore
+!/Server/Dockerfile
+!/Server/Makefile
+!/Server/server.py
+!/Server/trace.c
+!/Server/trace.ko
+!/Server/trace.o
