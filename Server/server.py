@@ -14,7 +14,7 @@ with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:
 	s.listen()
 	while True:
 		conn,addr = s.accept()
-		print("received at: uptime()")
+		print("received at:", uptime())
 		stdout.flush()
 		call(["insmod","trace.ko"])
 		with conn:
@@ -24,7 +24,7 @@ with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:
 			if not data:
 				break
 			conn.sendall(b'acknowledged')
-			print("sent at: uptime()")
+			print("sent at: ", uptime())
 			stdout.flush()
 			call(["rmmod","trace.ko"])
 			
