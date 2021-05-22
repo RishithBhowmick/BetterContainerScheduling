@@ -1,0 +1,1 @@
+cmd_/home/pranav/Desktop/College/Capstone/Server/trace.ko := ld -r -m elf_x86_64 --build-id=sha1  -T scripts/module.lds -o /home/pranav/Desktop/College/Capstone/Server/trace.ko /home/pranav/Desktop/College/Capstone/Server/trace.o /home/pranav/Desktop/College/Capstone/Server/trace.mod.o;  true

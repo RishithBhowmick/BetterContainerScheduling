@@ -1,0 +1,218 @@
+Specs: Intel Core i7 9750H (12 processing threads)
+
+A: Baseline (no heavy containers):
+
+1 )
+received at: 22356.46
+sent at:  22364.35
+diff:  7.889999999999418
+
+2 )
+received at: 22372.42
+sent at:  22380.28
+diff:  7.860000000000582
+
+3 )
+received at: 22389.12
+sent at:  22399.14
+diff:  10.020000000000437
+
+4 )
+received at: 22422.51
+sent at:  22431.32
+diff:  8.81000000000131
+
+5 )
+received at: 22439.41
+sent at:  22447.42
+diff:  8.0099999999984
+---------------------------------------------
+A1: 1 heavy container
+
+1 )
+received at: 22569.8
+sent at:  22579.34
+diff:  9.540000000000873
+
+2 )
+received at: 22587.68
+sent at:  22598.32
+diff:  10.639999999999418
+
+3 )
+received at: 22612.67
+sent at:  22622.41
+diff:  9.7400000000016
+
+4 )
+received at: 22638.97
+sent at:  22649.27
+diff:  10.299999999999272
+
+5 )
+received at: 22667.67
+sent at:  22677.05
+diff:  9.380000000001019
+---------------------------------------------
+A2: 2 heavy containers
+
+1 )
+received at: 22764.83
+sent at:  22775.39
+diff:  10.559999999997672
+
+2 )
+received at: 22791.3
+sent at:  22801.95
+diff:  10.650000000001455
+
+3 )
+received at: 22835.34
+sent at:  22846.5
+diff:  11.159999999999854
+
+4 )
+received at: 22854.19
+sent at:  22864.9
+diff:  10.710000000002765
+
+5 )
+received at: 22881.61
+sent at:  22891.64
+diff:  10.029999999998836
+---------------------------------------------
+A3: 4 heavy containers
+
+1 )
+received at: 25762.53
+sent at:  25773.73
+diff:  11.200000000000728
+
+2 )
+received at: 25782.54
+sent at:  25795.15
+diff:  12.610000000000582
+
+3 )
+received at: 25806.21
+sent at:  25820.51
+diff:  14.299999999999272
+
+4 )
+received at: 25852.87
+sent at:  25866.97
+diff:  14.100000000002183
+
+5 )
+received at: 25876.27
+sent at:  25888.33
+diff:  12.06000000000131
+---------------------------------------------
+A4: 6 heavy containers
+
+1)
+received at: 24121.23
+sent at:  24151.82
+diff:  30.590000000000146
+
+2 )
+received at: 24161.36
+sent at:  24193.011
+diff:  31.649999999997817
+
+3 )
+received at: 24213.98
+sent at:  24245.0
+diff:  31.020000000000437
+
+4 )
+received at: 24266.32
+sent at:  24298.35
+diff:  32.029999999998836
+
+5 )
+received at: 24319.54
+sent at:  24349.4
+diff:  29.860000000000582
+---------------------------------------------
+A5: 8 heavy containers
+
+
+1 )
+received at: 23259.99
+sent at:  23293.27
+diff:  33.279999999998836
+
+2 )
+received at: 23303.08
+sent at:  23336.89
+diff:  33.80999999999767
+
+3 )
+received at: 23381.22
+sent at:  23415.16
+diff:  33.93999999999869
+
+4 )
+received at: 23429.31
+sent at:  23463.04
+diff:  33.72999999999956
+
+5 )
+received at: 23486.85
+sent at:  23521.01
+diff:  34.159999999999854
+---------------------------------------------
+A6: 12 heavy containers
+
+1 )
+received at: 24547.04
+sent at:  24581.89
+diff:  34.849999999998545
+
+2 )
+received at: 24621.72
+sent at:  24658.62
+diff:  36.89999999999782
+
+3 )
+received at: 24671.64
+sent at:  24712.12
+diff:  40.47999999999956
+
+4 )
+received at: 24739.9
+sent at:  24775.9
+diff:  36.0
+
+5 )
+received at: 24805.48
+sent at:  24841.72
+diff:  36.2400000000016
+---------------------------------------------
+A7: 16 heavy containers
+
+1 )
+received at: 25082.37
+sent at:  25126.51
+diff:  44.13999999999942
+
+2 )
+received at: 25139.93
+sent at:  25188.73
+diff:  48.79999999999927
+
+3 )
+received at: 25203.52
+sent at:  25250.76
+diff:  47.23999999999796
+
+4 )
+received at: 25276.48
+sent at:  25326.67
+diff:  50.18999999999869
+
+5 )
+received at: 25343.12
+sent at:  25391.92
+diff:  48.79999999999927

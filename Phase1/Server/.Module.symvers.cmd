@@ -1,0 +1,1 @@
+cmd_/home/pranav/Desktop/College/Capstone/Server/Module.symvers := sed 's/ko$$/o/' /home/pranav/Desktop/College/Capstone/Server/modules.order | scripts/mod/modpost  -a   -o /home/pranav/Desktop/College/Capstone/Server/Module.symvers -e -i Module.symvers  -N -T -

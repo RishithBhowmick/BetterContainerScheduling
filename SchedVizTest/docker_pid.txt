@@ -1,0 +1,58 @@
+---------------------- Friday 14 May 2021 12:30:43 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 6fdbb5d5a226 client "python client.py" 3 seconds ago Up 2 seconds admiring_shannon b581a09553d2 client "python client.py" 2 minutes ago Up 2 minutes vigorous_shamir 94d83dbfd19b server "python server.py" 2 minutes ago Up 2 minutes 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                1480378             1480359             8                   00:30               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                1476013             1475995             0                   00:28               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                1475899             1475880             0                   00:28               ?                   00:00:00            python server.py
+---------------------- Friday 14 May 2021 12:31:15 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 0bda84ba2bd9 client "python client.py" 6 seconds ago Up 2 seconds dazzling_hermann 16a58071fea1 server "python server.py" 9 seconds ago Up 5 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                1481854             1481835             3                   00:31               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                1481736             1481717             0                   00:31               ?                   00:00:00            python server.py
+---------------------- Friday 14 May 2021 12:35:00 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 846a155786be client "python client.py" 3 seconds ago Up 2 seconds busy_northcutt ebc66e98da96 server "python server.py" 5 seconds ago Up 3 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                1487702             1487684             7                   00:34               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                1487593             1487575             1                   00:34               ?                   00:00:00            python server.py
+---------------------- Friday 14 May 2021 01:03:23 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+
+
+docker top:
+
+---------------------- Friday 14 May 2021 01:03:36 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES e7b9313d3c29 client "python client.py" 3 seconds ago Up 2 seconds nervous_tereshkova 0d4d7a1520ec server "python server.py" 5 seconds ago Up 3 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                1544135             1544079             8                   01:03               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                1543970             1543950             2                   01:03               ?                   00:00:00            python server.py

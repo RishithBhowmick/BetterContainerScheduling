@@ -1,0 +1,137 @@
+Specs: Intel Core i7 9750H (12 processing threads)
+8 heavy containers
+
+-------------------------------------
+B) Baseline (Nice value 0):
+
+1 )
+received at: 26618.41
+sent at:  26651.94
+diff:  33.529999999998836
+
+2 )
+received at: 26661.91
+sent at:  26693.87
+diff:  31.959999999999127
+
+3 )
+received at: 26716.0
+sent at:  26748.08
+diff:  32.080000000001746
+
+4 )
+received at: 26770.2
+sent at:  26802.33
+diff:  32.13000000000102
+
+5 )
+received at: 26845.24
+sent at:  26878.08
+diff:  32.840000000000146
+
+-------------------------------------
+B1) Nice value -4:
+
+1 )
+received at: 30658.61
+sent at:  30689.43
+diff:  30.81999999999971
+
+2 )
+received at: 30699.29
+sent at:  30731.22
+diff:  31.93000000000029
+
+3 )
+received at: 30756.7
+sent at:  30788.25
+diff:  31.549999999999272
+
+4 )
+received at: 30811.34
+sent at:  30843.66
+diff:  32.31999999999971
+
+5 )
+received at: 30867.03
+sent at:  30899.86
+diff:  32.830000000001746
+
+-------------------------------------
+B2) Baseline (Nice value -8):
+
+1 )
+received at: 31599.89
+sent at:  31631.64
+diff:  31.75
+
+2 )
+received at: 31641.39
+sent at:  31674.3
+diff:  32.909999999999854
+
+3 )
+received at: 31716.89
+sent at:  31749.33
+diff:  32.44000000000233
+
+4 )
+received at: 31766.46
+sent at:  31800.13
+diff:  33.67000000000189
+
+5 )
+received at: 31823.76
+sent at:  31856.08
+diff:  32.32000000000335
+
+-------------------------------------
+B5) Baseline (Nice value -20):
+
+1 )
+received at: 32742.39
+sent at:  32774.76
+diff:  32.37000000000262
+
+2 )
+received at: 32784.34
+sent at:  32815.9
+diff:  31.560000000004948
+
+3 )
+received at: 32881.97
+sent at:  32914.4
+diff:  32.43000000000029
+
+4 )
+received at: 32927.4
+sent at:  32960.2
+diff:  32.799999999995634
+
+
+
+              PID                   NICE
+4 R root      464019  463999 99  80   0 -  3059 -      21:45 ?        00:04:08 python task.py
+1 I root      464069       2  0  80   0 -     0 -      21:45 ?        00:00:00 [kworker/6:3-events]
+1 I root      464077       2  0  80   0 -     0 -      21:45 ?        00:00:00 [kworker/8:0]
+0 S root      464086       1  0  80   0 - 177859 -     21:45 ?        00:00:00 /usr/bin/containerd-shim-runc-v2 -namespace moby -id e7
+4 R root      464105  464086 99  80   0 -  3059 -      21:45 ?        00:04:07 python task.py
+0 S root      464134       1  0  80   0 - 177859 -     21:45 ?        00:00:00 /usr/bin/containerd-shim-runc-v2 -namespace moby -id de
+4 R root      464169  464134 99  80   0 -  3059 -      21:45 ?        00:04:07 python task.py
+4 S root      464366  307623  0  80   0 -  4162 -      21:45 pts/3    00:00:00 sudo docker run --rm --network=my_server --privileged -
+4 S root      464404  464366  0  80   0 - 356097 -     21:45 pts/3    00:00:00 docker run --rm --network=my_server --privileged --cap-
+1 I root      464413       2  0  80   0 -     0 -      21:45 ?        00:00:00 [kworker/u24:9]
+0 S root      464427       1  0  80   0 - 177859 -     21:45 ?        00:00:00 /usr/bin/containerd-shim-runc-v2 -namespace moby -id fc
+4 R root  **464445**  464427 54  60 -20 -  3265 -      21:45 ?        00:02:08 python server.py
+1 I root      465009       2  0  80   0 -     0 -      21:46 ?        00:00:00 [kworker/9:2-events]
+1 I root      465062       2  0  80   0 -     0 -      21:46 ?        00:00:00 [kworker/1:2]
+1 I root      465432       2  0  60 -20 -     0 -      21:47 ?        00:00:00 [kworker/u25:0]
+1 I root      465880       2  0  80   0 -     0 -      21:48 ?        00:00:00 [kworker/2:0-events]
+1 I root      465993       2  0  80   0 -     0 -      21:48 ?        00:00:00 [kworker/11:1-events]
+1 I root      466118       2  0  80   0 -     0 -      21:48 ?        00:00:00 [kworker/5:0-events]
+4 S root      466406  307856  0  80   0 -  4162 -      21:49 pts/4    00:00:00 sudo docker run --rm --network=my_server client
+4 S root      466407  466406  0  80   0 - 337792 -     21:49 pts/4    00:00:00 docker run --rm --network=my_server client
+0 S root      466429       1  0  80   0 - 177779 -     21:49 ?        00:00:00 /usr/bin/containerd-shim-runc-v2 -namespace moby -id b1
+4 S root      466448  466429  1  80   0 -  3928 -      21:49 ?        00:00:00 python client.py
+4 S root      466731       1  0  80   0 - 73932 -      21:49 ?        00:00:00 /usr/lib/kauth/backlighthelper
+4 R pranav    466833  438218  0  80   0 -  2500 -      21:49 pts/2    00:00:00 ps -efl
