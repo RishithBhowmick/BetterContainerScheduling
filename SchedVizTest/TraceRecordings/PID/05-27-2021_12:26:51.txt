@@ -1,0 +1,12 @@
+---------------------- Thursday 27 May 2021 12:26:56 PM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES fc572b2051fc client "python client.py" 3 seconds ago Up 2 seconds keen_jepsen dc8b5e54b342 server "python server.py" 5 seconds ago Up 3 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                480110              480090              8                   12:26               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                479996              479976              1                   12:26               ?                   00:00:00            python server.py
