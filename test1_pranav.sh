@@ -14,9 +14,10 @@ sleep 2
 
 containers=$(sudo docker ps -q)
 
+echo "Enter deatiled description of the purpose of this recording: "
 read description
 
-echo "description: " $description >> >>/home/pranav/Desktop/College/BetterContainerScheduling/SchedVizTest/TraceRecordings/PID/$now.txt
+echo "description: " $description >>/home/pranav/Desktop/College/BetterContainerScheduling/SchedVizTest/TraceRecordings/PID/$now.txt
 echo "\n\n----------------------" $(date) "----------------------" >>/home/pranav/Desktop/College/BetterContainerScheduling/SchedVizTest/TraceRecordings/PID/$now.txt
 echo -e "\ndocker ps:" >>/home/pranav/Desktop/College/BetterContainerScheduling/SchedVizTest/TraceRecordings/PID/$now.txt
 echo -e $(sudo docker ps)'\n\n' >>/home/pranav/Desktop/College/BetterContainerScheduling/SchedVizTest/TraceRecordings/PID/$now.txt
