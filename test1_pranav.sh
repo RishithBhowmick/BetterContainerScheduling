@@ -14,7 +14,7 @@ sleep 2
 
 containers=$(sudo docker ps -q)
 
-echo "Enter deatiled description of the purpose of this recording: "
+echo "Enter detailed description of the purpose of this recording: "
 read description
 
 echo "description: " $description >>/home/pranav/Desktop/College/BetterContainerScheduling/SchedVizTest/TraceRecordings/PID/$now.txt
@@ -29,7 +29,7 @@ done
 
 sleep 7
 
-sudo sh /home/pranav/Desktop/College/BetterContainerScheduling/SchedVizTest/schedviz/util/trace.sh -out "/home/pranav/Desktop/College/BetterContainerScheduling/SchedVizTest/TraceRecordings/$now" -capture_seconds 15
+sudo sh /home/pranav/Desktop/College/BetterContainerScheduling/SchedVizTest/schedviz/util/trace.sh -out "/home/pranav/Desktop/College/BetterContainerScheduling/SchedVizTest/TraceRecordings/$now" -capture_seconds 15 -copy_timeout 10
 
 sudo docker kill $(sudo docker ps -a -q)
 sudo docker rm $(sudo docker ps -a -q)

@@ -1,0 +1,17 @@
+description:  HeavyContainer long running task, scale = 2
+\n\n---------------------- Sun 30 May 19:06:56 IST 2021 ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 2a07f261e0b9 heavycontainer_heavycontainer "python task.py" 22 seconds ago Up 21 seconds heavycontainer_heavycontainer_2 e44f108d9e08 heavycontainer_heavycontainer "python task.py" 22 seconds ago Up 21 seconds heavycontainer_heavycontainer_1 b8e08744009f client "python client.py" 23 seconds ago Up 22 seconds confident_maxwell 6160f9ca81d7 server "python server.py" 23 seconds ago Up 22 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                64543               64519               99                  19:06               ?                   00:00:21            python task.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                64542               64493               99                  19:06               ?                   00:00:21            python task.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                64341               64321               0                   19:06               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                64229               64210               0                   19:06               ?                   00:00:00            python server.py

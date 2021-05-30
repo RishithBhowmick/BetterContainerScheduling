@@ -1,0 +1,15 @@
+description:  HeavyContainer short running scale = 1
+\n\n---------------------- Sun 30 May 19:50:39 IST 2021 ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 6aa96198ae0f heavycontainer_heavycontainer "python task.py" 16 seconds ago Up 16 seconds heavycontainer_heavycontainer_1 3f8171b6f80b client "python client.py" 17 seconds ago Up 17 seconds agitated_mcclintock 3e9a16899a1b server "python server.py" 18 seconds ago Up 17 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                71628               71607               99                  19:50               ?                   00:00:15            python task.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                71461               71440               0                   19:50               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                71354               71333               0                   19:50               ?                   00:00:00            python server.py

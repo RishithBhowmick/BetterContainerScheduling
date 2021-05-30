@@ -1,0 +1,21 @@
+description:  HeavyContainer short running scale = 4
+\n\n---------------------- Sun 30 May 19:56:18 IST 2021 ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES b3b8863a2019 heavycontainer_heavycontainer "python task.py" 11 seconds ago Up 9 seconds heavycontainer_heavycontainer_4 0d018022b144 heavycontainer_heavycontainer "python task.py" 11 seconds ago Up 9 seconds heavycontainer_heavycontainer_2 62fc63fd5d21 heavycontainer_heavycontainer "python task.py" 11 seconds ago Up 10 seconds heavycontainer_heavycontainer_1 8ff3214a6696 heavycontainer_heavycontainer "python task.py" 11 seconds ago Up 10 seconds heavycontainer_heavycontainer_3 841e72d3b7ee client "python client.py" 12 seconds ago Up 11 seconds quirky_lumiere 871074de094b server "python server.py" 12 seconds ago Up 11 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                72824               72789               61                  19:56               ?                   00:00:06            python task.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                72764               72727               62                  19:56               ?                   00:00:06            python task.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                72687               72638               38                  19:56               ?                   00:00:03            python task.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                72685               72659               39                  19:56               ?                   00:00:03            python task.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                72489               72465               1                   19:56               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                72375               72355               0                   19:56               ?                   00:00:00            python server.py

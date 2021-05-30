@@ -1,0 +1,192 @@
+---------------------- Wednesday 26 May 2021 11:15:51 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES cde30cf35030 client "python client.py" 2 seconds ago Up 2 seconds suspicious_elion 7e027d94c303 server "python server.py" 3 seconds ago Up 2 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38601               38582               5                   11:15               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38491               38471               2                   11:15               ?                   00:00:00            python server.py
+---------------------- Wednesday 26 May 2021 11:15:58 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES cde30cf35030 client "python client.py" 9 seconds ago Up 9 seconds suspicious_elion 7e027d94c303 server "python server.py" 10 seconds ago Up 9 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38601               38582               1                   11:15               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38491               38471               0                   11:15               ?                   00:00:00            python server.py
+---------------------- Wednesday 26 May 2021 11:16:00 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES cde30cf35030 client "python client.py" 11 seconds ago Up 10 seconds suspicious_elion 7e027d94c303 server "python server.py" 12 seconds ago Up 10 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38601               38582               0                   11:15               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38491               38471               0                   11:15               ?                   00:00:00            python server.py
+---------------------- Wednesday 26 May 2021 11:16:01 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES cde30cf35030 client "python client.py" 12 seconds ago Up 11 seconds suspicious_elion 7e027d94c303 server "python server.py" 13 seconds ago Up 11 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38601               38582               0                   11:15               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38491               38471               0                   11:15               ?                   00:00:00            python server.py
+---------------------- Wednesday 26 May 2021 11:16:02 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES cde30cf35030 client "python client.py" 13 seconds ago Up 12 seconds suspicious_elion 7e027d94c303 server "python server.py" 14 seconds ago Up 13 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38601               38582               0                   11:15               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38491               38471               0                   11:15               ?                   00:00:00            python server.py
+---------------------- Wednesday 26 May 2021 11:16:03 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES cde30cf35030 client "python client.py" 14 seconds ago Up 13 seconds suspicious_elion 7e027d94c303 server "python server.py" 15 seconds ago Up 14 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38601               38582               0                   11:15               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38491               38471               0                   11:15               ?                   00:00:00            python server.py
+---------------------- Wednesday 26 May 2021 11:16:04 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES cde30cf35030 client "python client.py" 15 seconds ago Up 14 seconds suspicious_elion 7e027d94c303 server "python server.py" 16 seconds ago Up 15 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38601               38582               0                   11:15               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38491               38471               0                   11:15               ?                   00:00:00            python server.py
+---------------------- Wednesday 26 May 2021 11:16:05 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES cde30cf35030 client "python client.py" 16 seconds ago Up 16 seconds suspicious_elion 7e027d94c303 server "python server.py" 17 seconds ago Up 16 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38601               38582               0                   11:15               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38491               38471               0                   11:15               ?                   00:00:00            python server.py
+---------------------- Wednesday 26 May 2021 11:16:06 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES cde30cf35030 client "python client.py" 17 seconds ago Up 17 seconds suspicious_elion 7e027d94c303 server "python server.py" 18 seconds ago Up 17 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38601               38582               0                   11:15               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38491               38471               0                   11:15               ?                   00:00:00            python server.py
+---------------------- Wednesday 26 May 2021 11:16:07 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES cde30cf35030 client "python client.py" 19 seconds ago Up 18 seconds suspicious_elion 7e027d94c303 server "python server.py" 20 seconds ago Up 18 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38601               38582               0                   11:15               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38491               38471               0                   11:15               ?                   00:00:00            python server.py
+---------------------- Wednesday 26 May 2021 11:16:09 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES cde30cf35030 client "python client.py" 20 seconds ago Up 19 seconds suspicious_elion 7e027d94c303 server "python server.py" 21 seconds ago Up 19 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38601               38582               0                   11:15               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38491               38471               0                   11:15               ?                   00:00:00            python server.py
+---------------------- Wednesday 26 May 2021 11:16:10 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES cde30cf35030 client "python client.py" 21 seconds ago Up 20 seconds suspicious_elion 7e027d94c303 server "python server.py" 22 seconds ago Up 21 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38601               38582               0                   11:15               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38491               38471               0                   11:15               ?                   00:00:00            python server.py
+---------------------- Wednesday 26 May 2021 11:16:11 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES cde30cf35030 client "python client.py" 22 seconds ago Up 21 seconds suspicious_elion 7e027d94c303 server "python server.py" 23 seconds ago Up 22 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38601               38582               0                   11:15               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38491               38471               0                   11:15               ?                   00:00:00            python server.py
+---------------------- Wednesday 26 May 2021 11:16:12 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES cde30cf35030 client "python client.py" 23 seconds ago Up 22 seconds suspicious_elion 7e027d94c303 server "python server.py" 24 seconds ago Up 23 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38601               38582               0                   11:15               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38491               38471               0                   11:15               ?                   00:00:00            python server.py
+---------------------- Wednesday 26 May 2021 11:16:13 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES cde30cf35030 client "python client.py" 24 seconds ago Up 24 seconds suspicious_elion 7e027d94c303 server "python server.py" 25 seconds ago Up 24 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38601               38582               0                   11:15               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38491               38471               0                   11:15               ?                   00:00:00            python server.py
+---------------------- Wednesday 26 May 2021 11:16:14 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES cde30cf35030 client "python client.py" 25 seconds ago Up 25 seconds suspicious_elion 7e027d94c303 server "python server.py" 26 seconds ago Up 25 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38601               38582               0                   11:15               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                38491               38471               0                   11:15               ?                   00:00:00            python server.py
