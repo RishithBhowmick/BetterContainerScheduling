@@ -1,0 +1,11 @@
+description:  test heavy run using docker compose
+\n\n---------------------- Wednesday 02 June 2021 11:55:27 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 0856bda083bc heavycontainer_heavycontainer "python task.py" 28 seconds ago Up 20 seconds heavycontainer_heavycontainer_1
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                1989044             1989024             54                  11:55               ?                   00:00:11            python task.py

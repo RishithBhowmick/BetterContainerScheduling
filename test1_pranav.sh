@@ -1,6 +1,7 @@
 #!/bin/bash
 now=$(date +'%m-%d-%Y_%T')
 sudo docker kill $(sudo docker ps -q) || true
+sudo docker-compose down || true
 
 # pin containers to core 1
 sudo docker run -d --rm --cpuset-cpus="2,8" --network=my_server --name ipc_server_dns_name server

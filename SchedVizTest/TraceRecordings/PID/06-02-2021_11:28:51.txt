@@ -1,0 +1,16 @@
+description:  test heavy run using docker with shell script for sleep
+\n\n---------------------- Wednesday 02 June 2021 11:29:46 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 248ebf2fdf82 heavy "sh task.sh" 33 seconds ago Up 24 seconds stupefied_carver c39ee3e9a372 client "python client.py" 36 seconds ago Up 33 seconds vibrant_proskuriakova 85a06cd09048 server "python server.py" 38 seconds ago Up 35 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                1932680             1932661             0                   11:29               ?                   00:00:00            sh task.sh
+root                1933756             1932680             9                   11:29               ?                   00:00:00            python task.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                1932403             1932381             0                   11:29               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                1932122             1932103             0                   11:29               ?                   00:00:00            python server.py

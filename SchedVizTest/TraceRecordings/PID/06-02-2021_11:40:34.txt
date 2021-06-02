@@ -1,0 +1,15 @@
+description:  test heavy run using docker (this is imp stuff)
+\n\n---------------------- Wednesday 02 June 2021 11:41:01 AM IST ----------------------
+
+docker ps:
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 5b91dd9e3be7 heavy "python task.py" 20 seconds ago Up 18 seconds agitated_wu e5ab1812b6c9 client "python client.py" 23 seconds ago Up 20 seconds intelligent_lalande c948bd4b316c server "python server.py" 27 seconds ago Up 23 seconds 5000/tcp ipc_server_dns_name
+
+
+docker top:
+
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                1956760             1956740             53                  11:40               ?                   00:00:10            python task.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                1956643             1956624             1                   11:40               ?                   00:00:00            python client.py
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                1956366             1956342             0                   11:40               ?                   00:00:00            python server.py

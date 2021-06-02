@@ -2,4 +2,4 @@ version: "2.4"
 services:
   heavycontainer:
     build: .
-    cpuset: "2,6"
+    cpuset: "2,8"
