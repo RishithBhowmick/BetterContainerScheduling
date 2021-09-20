@@ -5,8 +5,8 @@
 
 BEGIN
 {
-    printf("hallo leute!\n");
-    printf("%-8s %-16s %-6s %14s %-16s %-6s", "TIME", "COMM", "TID", "LAT(us)", "PREV COMM", "PREV TID");
+    //printf("hallo leute!\n");
+    //printf("%-8s %-16s %-6s %14s %-16s %-6s", "TIME", "COMM", "TID", "LAT(us)", "PREV COMM", "PREV TID");
 }
 
 tracepoint:sched:sched_wakeup,
@@ -27,7 +27,7 @@ tracepoint:sched:sched_switch {
     $latency = (nsecs - $ns)/1000;
 
     if($latency != 0 && args->next_pid != 0 && args->prev_pid != 0){
-        printf("time_:%-12s old_process:%-12s old_pid:%-12d latency:%-12lld new_process:%-12s new_pid:%d\n", strftime("%H:%M:%S",nsecs), args->prev_comm, args->prev_pid, $latency, args->next_comm, args->next_pid);
+        printf("time_:%-8d oproc:%-8s opid:%-8d lat:%-8lld nproc:%-8s npid:%d\n", nsecs, args->prev_comm, args->prev_pid, $latency, args->next_comm, args->next_pid);
     }
 
     delete(@qtime[args->next_pid]);    
