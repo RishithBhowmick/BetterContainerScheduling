@@ -1,0 +1,39 @@
+#include <uapi/linux/ptrace.h>
+#include <linux/sched.h>
+#include <linux/nsproxy.h>
+#include <linux/pid_namespace.h>
+
+BEGIN
+{
+    printf("hallo leute!\n");
+    printf("%-8s %-16s %-6s %14s %-16s %-6s", "TIME", "COMM", "TID", "LAT(us)", "PREV COMM", "PREV TID");
+}
+
+tracepoint:sched:sched_wakeup,
+tracepoint:sched:sched_wakeup_new 
+{
+    @qtime[args->pid] = nsecs;
+}
+
+tracepoint:sched:sched_switch {
+    
+    if (args->prev_state == TASK_RUNNING) {
+        if (args->prev_pid != 0) {
+            @qtime[args->prev_pid] = nsecs;
+        }
+    }
+
+    $ns = @qtime[args->next_pid];
+    $latency = (nsecs - $ns)/1000;
+
+    if($latency != 0 && args->next_pid != 0 && args->prev_pid != 0){
+        printf("time_:%-12s old_process:%-12s old_pid:%-12d latency:%-12lld new_process:%-12s new_pid:%d\n", strftime("%H:%M:%S",nsecs), args->prev_comm, args->prev_pid, $latency, args->next_comm, args->next_pid);
+    }
+
+    delete(@qtime[args->next_pid]);    
+}
+
+END
+{
+	clear(@qtime);
+}
