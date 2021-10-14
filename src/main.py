@@ -1,11 +1,17 @@
 import docker
 import pprint
 import time
+from docker_functions import *
+
+
 client = docker.from_env()
 all_containers = client.containers.list()
+# print(all_containers)
+# container_utilisation_dict = SortedDict()
 while True:
+    container_utilisation_dict = dict()
     for container in all_containers:    
-        # pprint.pprint(container.attrs['HostConfig']['CpuShares'])
+        # pprint.pprint(container.attrs['HostConfig'])
         # container.update(cpu_shares=2)
         # client.refresh()
         # pprint.pprint(container.attrs['HostConfig']['CpuShares'])
@@ -19,26 +25,34 @@ while True:
         # for i in container_stats:
         #     pprint.pprint(i['cpu_stats'])
         #     pprint.pprint(i['precpu_stats'])
+        if "jaeger" in container.name and "grafana" in container.name and "prometheus" in container.name:
+            continue    
 
         if 'system_cpu_usage' in  container_stats['precpu_stats'].keys():
             # print(i.keys())
-            UsageDelta = container_stats['cpu_stats']['cpu_usage']['total_usage'] - container_stats['precpu_stats']['cpu_usage']['total_usage']
-        #     # from informations : UsageDelta = 25382985593 - 25382168431
-
-            SystemDelta = container_stats['cpu_stats']['system_cpu_usage'] - container_stats['precpu_stats']['system_cpu_usage']
-        #     # from informations : SystemDelta = 75406420000000 - 75400410000000
-
-            len_cpu = len(container_stats['cpu_stats']['cpu_usage']['percpu_usage'])
-        #     # from my informations : len_cpu = 2
-
-
-            percentage = (UsageDelta / SystemDelta) * len_cpu * 100
-        #     # this is a little big because the result is : 0.02719341098169717
-
-            percent = round(percentage, 2)
-            print(container.name,percent)            
+            percent = cpu_utilisation(container_stats)
+            # print(container.name,percent)            
+            if percent < 1:            
+                container_utilisation_dict[container] = 1.0
+            else:
+                container_utilisation_dict[container] = percent
+            # print(container.name)
+            # pprint.pprint(container.attrs['HostConfig']['CpuShares'])
+            
         else:            
             pass
         #     time.sleep(3)
             #     # now The output is 0.02 and thats the answer.
-    time.sleep(3)
+    try:
+        # valid_containers = {key:value for key,value in container_utilisation_dict.items() if key != 0}     
+        minimum_utilisation = container_utilisation_dict[min(container_utilisation_dict,key = container_utilisation_dict.get)]
+
+        print(container_utilisation_dict)
+        for container,utilisation in container_utilisation_dict.items():
+            # pprint.pprint(container.attrs['HostConfig']['CpuShares'])
+            new_shares = int((utilisation/minimum_utilisation)*2)
+            container.update(cpu_shares = new_shares)
+    # print(container_utilisation_dict)
+    except Exception as e:
+        print("first iteration",str(e),e.__traceback__.tb_lineno)
+    time.sleep(5)
