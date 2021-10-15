@@ -1,6 +1,8 @@
 
 
-def cpu_utilisation(container_stats):
+def cpu_utilisation(container):
+    container_stats = container.stats(stream=False)
+    if 'system_cpu_usage' in  container_stats['precpu_stats'].keys():
         UsageDelta = container_stats['cpu_stats']['cpu_usage']['total_usage'] - container_stats['precpu_stats']['cpu_usage']['total_usage']
         #     # from informations : UsageDelta = 25382985593 - 25382168431
 
@@ -16,3 +18,5 @@ def cpu_utilisation(container_stats):
 
         percent = round(percentage, 2)
         return percent
+    else:
+         return None
