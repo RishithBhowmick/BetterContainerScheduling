@@ -75,7 +75,8 @@ while True:
         for container,utilisation in container_utilisation_dict.items():
             # pprint.pprint(container.attrs['HostConfig']['CpuShares'])            
             cpus = ((utilisation/total_utilisation)*num_cores)
-            print(container.name,cpus)            
+            print(container.name,cpus)  
+            cpus = round(cpus,2)       
             # container.update(NanoCPUs = cpus)
             os.system(f"docker update --cpus={cpus} {container.id}")
         # print(container_utilisation_dict)
