@@ -17,6 +17,9 @@ def cpu_utilisation(container):
     #     # this is a little big because the result is : 0.02719341098169717
 
         percent = round(percentage, 2)
-        return percent
+        if percent < 1:
+            return 1
+        else:
+            return percent
     else:
          return None

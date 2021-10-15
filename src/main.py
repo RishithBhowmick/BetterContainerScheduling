@@ -2,8 +2,10 @@ import docker
 import pprint
 import time
 from docker_functions import *
-from datetime import datetime
+from datetime import date, datetime
 from  concurrent.futures import ThreadPoolExecutor,as_completed
+import os
+
 
 client = docker.from_env()
 all_containers = client.containers.list()
@@ -58,16 +60,27 @@ while True:
         #     pass
         #     time.sleep(3)
             #     # now The output is 0.02 and thats the answer.
-    # try:
-    #     # valid_containers = {key:value for key,value in container_utilisation_dict.items() if key != 0}     
-    #     minimum_utilisation = container_utilisation_dict[min(container_utilisation_dict,key = container_utilisation_dict.get)]
-
-    #     print(container_utilisation_dict)
-    #     for container,utilisation in container_utilisation_dict.items():
-    #         # pprint.pprint(container.attrs['HostConfig']['CpuShares'])            
-    #         new_shares = int((utilisation/minimum_utilisation)*2)
-    #         container.update(cpu_shares = new_shares)
-    #     # print(container_utilisation_dict)
-    # except Exception as e:
-    #     print("first iteration",str(e),e.__traceback__.tb_lineno)
-    time.sleep(3)
+    # number of cores
+    # sum the utilisation of all containers
+    # get the 'nano_cpus' value by (utilisation/sum)*num_cores
+    # then assign
+    
+    try:
+        # valid_containers = {key:value for key,value in container_utilisation_dict.items() if key != 0}     
+        # minimum_utilisation = container_utilisation_dict[min(container_utilisation_dict,key = container_utilisation_dict.get)]
+        total_utilisation = sum(container_utilisation_dict.values())
+        num_cores = os.cpu_count()
+        print(container_utilisation_dict)
+        start_time = datetime.now()
+        for container,utilisation in container_utilisation_dict.items():
+            # pprint.pprint(container.attrs['HostConfig']['CpuShares'])            
+            cpus = ((utilisation/total_utilisation)*num_cores)
+            print(container.name,cpus)            
+            # container.update(NanoCPUs = cpus)
+            os.system(f"docker update --cpus={cpus} {container.id}")
+        # print(container_utilisation_dict)
+        end_time = datetime.now()
+        print(end_time-start_time)
+    except Exception as e:
+        print("first iteration",str(e),e.__traceback__.tb_lineno)
+    time.sleep(5)
