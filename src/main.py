@@ -75,13 +75,13 @@ while True:
         for container,utilisation in container_utilisation_dict.items():
             # pprint.pprint(container.attrs['HostConfig']['CpuShares'])            
             cpus = ((utilisation/total_utilisation)*num_cores)
-            print(container.name,cpus)  
             cpus = round(cpus,2)       
+            print("Name: ",container.name,"Utilisation: ",utilisation,"New cpus: ",cpus)  
             # container.update(NanoCPUs = cpus)
             os.system(f"docker update --cpus={cpus} {container.id}")
         # print(container_utilisation_dict)
         end_time = datetime.now()
         print(end_time-start_time)
     except Exception as e:
-        print("first iteration",str(e),e.__traceback__.tb_lineno)
+        print(str(e),e.__traceback__.tb_lineno)
     time.sleep(5)
