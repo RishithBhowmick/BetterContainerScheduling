@@ -2,33 +2,34 @@ import docker
 import pprint
 import time
 from docker_functions import *
-
+from  concurrent.futures import ThreadPoolExecutor,as_completed
+from datetime import datetime
 
 client = docker.from_env()
 all_containers = client.containers.list()
-
+num_containers = len(all_containers)
 while True:
     container_utilisation_dict = dict()
-    for container in all_containers:    
-        container_stats = container.stats(stream=False)
-        if "jaeger" in container.name and "grafana" in container.name and "prometheus" in container.name:
-            continue    
+    for container in all_containers:          
+        container_utilisation_dict = dict()        
 
-        if 'system_cpu_usage' in  container_stats['precpu_stats'].keys():
-            percent = cpu_utilisation(container_stats)
-            container_utilisation_dict[container] = percent             
-        else:            
-            pass
-                
+        with ThreadPoolExecutor(max_workers=num_containers) as executor:
+            future_to_utilisation = {executor.submit(cpu_utilisation,container):container for container in all_containers if ("jaeger" not in container.name and "grafana" not in container.name and "prometheus" not in container.name)}
+
+        for future in as_completed(future_to_utilisation):
+             container_utilisation_dict[future_to_utilisation[future]] = future.result()                
+
     try:    
                 
         average_utilisation = sum(container_utilisation_dict.values())/len(container_utilisation_dict)         
         for container,utilisation in container_utilisation_dict.items():
             # pprint.pprint(container.attrs['HostConfig']['CpuShares'])
-            new_shares = (1024/utilisation)*average_utilisation             
-            print("Name: ",container.name,"Utilisation: ",utilisation,"shares ",new_shares)               
-            container.update(cpu_shares = new_shares)
+            new_shares = (1024/average_utilisation)*utilisation             
+            print("Name: ",container.name,"| Utilisation: ",utilisation,"| shares ",new_shares)               
+            container.update(cpu_shares = int(new_shares))
     # print(container_utilisation_dict)
+        print("*****")
     except Exception as e:
-        print(str(e),e._traceback_.tb_lineno)
+        print(str(e),e.__traceback__.tb_lineno)
+        pass
     time.sleep(5)
