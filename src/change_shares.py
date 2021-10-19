@@ -9,15 +9,13 @@ client = docker.from_env()
 all_containers = client.containers.list()
 num_containers = len(all_containers)
 while True:
-    container_utilisation_dict = dict()
-    for container in all_containers:          
-        container_utilisation_dict = dict()        
+    container_utilisation_dict = dict()           
 
-        with ThreadPoolExecutor(max_workers=num_containers) as executor:
-            future_to_utilisation = {executor.submit(cpu_utilisation,container):container for container in all_containers if ("jaeger" not in container.name and "grafana" not in container.name and "prometheus" not in container.name)}
+    with ThreadPoolExecutor(max_workers=num_containers) as executor:
+        future_to_utilisation = {executor.submit(cpu_utilisation,container):container for container in all_containers if ("jaeger" not in container.name and "grafana" not in container.name and "prometheus" not in container.name)}
 
-        for future in as_completed(future_to_utilisation):
-             container_utilisation_dict[future_to_utilisation[future]] = future.result()                
+    for future in as_completed(future_to_utilisation):
+            container_utilisation_dict[future_to_utilisation[future]] = future.result()                
 
     try:    
                 
