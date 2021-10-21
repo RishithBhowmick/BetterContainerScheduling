@@ -19,10 +19,11 @@ while True:
 
     try:    
                 
-        average_utilisation = sum(container_utilisation_dict.values())/len(container_utilisation_dict)         
+        #average_utilisation = sum(container_utilisation_dict.values())/len(container_utilisation_dict)       
+        minimum_utilisation = container_utilisation_dict[min(container_utilisation_dict,key = container_utilisation_dict.get)]  
         for container,utilisation in container_utilisation_dict.items():
             # pprint.pprint(container.attrs['HostConfig']['CpuShares'])
-            new_shares = (1024/average_utilisation)*utilisation             
+            new_shares = (utilisation/minimum_utilisation)*2             
             print("Name: ",container.name,"| Utilisation: ",utilisation,"| shares ",new_shares)               
             container.update(cpu_shares = int(new_shares))
     # print(container_utilisation_dict)
