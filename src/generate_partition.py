@@ -54,7 +54,11 @@ for item in r.json()["data"]:
   # sanitised_child = item["child"].split("-")
   # sanitised_child = "-".join(sanitised_parent[:-1])
   # print(sanitised_parent)
-
+  if item["parent"] == "nginx-web-server":
+    item["parent"] = "nginx-thrift"
+  if item["child"] == "nginx-web-server":
+    item["child"] = "nginx-thrift"
+    
   parent_service = [i for i in range(len(vertices)) if item["parent"] in vertices[i]]
   print(parent_service)
   child_service = [i for i in range(len(vertices)) if item["child"] in vertices[i]]
