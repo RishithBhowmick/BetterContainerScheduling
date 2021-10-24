@@ -9,6 +9,9 @@ from datetime import datetime
 
 queue = list()
 
+# def get_service(container,vertices):
+
+
 
 def findpartitions(partitions, nginx_index, parent_child, visited,graph,vertices):
   # curr_index = nginx_index
@@ -34,20 +37,31 @@ def findpartitions(partitions, nginx_index, parent_child, visited,graph,vertices
 
   print(partitions)
       
-client = docker.from_env()
-containers = client.containers.list()
-vertices = [container.name for container in containers if container.name not in ["jaeger","prometheus","grafana"]]
+# client = docker.from_env()
+# containers = client.containers.list()
+# vertices = [container.name for container in containers if container.name not in ["jaeger","prometheus","grafana"]]
 
-vertices_no = len(vertices)
-graph = [[0 for _ in range(len(vertices))] for _ in range(len(vertices))]
+# vertices_no = len(vertices)
+# graph = [[0 for _ in range(len(vertices))] for _ in range(len(vertices))]
 
 r = requests.get("http://35.230.89.174:16686/api/dependencies")
 
 
 for item in r.json()["data"]:
-  i1 = vertices.index(item["parent"])
-  i2 = vertices.index(item["child"])
-  graph[i1][i2] = 1
+  # sanitised_parent = item["parent"].split("-")
+  # sanitised_parent = "-".join(sanitised_parent[:-1])
+  # # print(sanitised_parent)
+  # sanitised_child = item["child"].split("-")
+  # sanitised_child = "-".join(sanitised_parent[:-1])
+  # print(sanitised_parent)
+
+  parent_service = [i for i in range(len(vertices)) if item["parent"] in vertices[i]]
+  print(parent_service)
+  child_service = [i for i in range(len(vertices)) if item["child"] in vertices[i]]
+  print(child_service)
+  i1 = vertices.index(parent_service[0])
+  i2 = vertices.index(child_service[0])
+  graph[i1][i2] = 1  
   
 parent_child = dict()
 nginx_index = -1
