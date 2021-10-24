@@ -16,16 +16,16 @@ queue = list()
 def findpartitions(partitions, nginx_index, parent_child, visited,graph,vertices):
   # curr_index = nginx_index
   queue.append([nginx_index, 0])
-  partitions = [[nginx_index]]
+  partitions = [[vertices[nginx_index]]]
 
   while queue:
-
+    print(queue)
     curr_index, part_level = queue.pop(0)
-    print(parent_child[vertices[curr_index]])
+    #print("Printing",parent_child[vertices[curr_index]])
 
     for i in range(len(vertices)):
       if graph[curr_index][i] == 1 and visited[i] != 1:        
-          if parent_child[vertices[vertices[i]]][1] <= parent_child[vertices[vertices[i]]][0]:
+          if parent_child[vertices[i]][1] <= parent_child[vertices[i]][0]:
             partitions[part_level].append(vertices[i])
             queue.append([i, part_level])
 
@@ -33,14 +33,14 @@ def findpartitions(partitions, nginx_index, parent_child, visited,graph,vertices
             temp = [vertices[i]]
             partitions.append(temp)
             queue.append([i, len(partitions)-1])
-      visited[i] = 1
-
+          visited[i] = 1
+  print(graph)
   print(partitions)
       
 client = docker.from_env()
 containers = client.containers.list()
 vertices = [container.name for container in containers if container.name not in ["jaeger","prometheus","grafana"]]
-
+print(vertices)
 vertices_no = len(vertices)
 graph = [[0 for _ in range(len(vertices))] for _ in range(len(vertices))]
 
@@ -60,9 +60,9 @@ for item in r.json()["data"]:
     item["child"] = "nginx-thrift"
 
   parent_service = [i for i in range(len(vertices)) if item["parent"] in vertices[i]]
-  print(parent_service)
+  #print(parent_service)
   child_service = [i for i in range(len(vertices)) if item["child"] in vertices[i]]
-  print(child_service)
+  # print(child_service)
   # i1 = vertices.index(parent_service[0])
   # i2 = vertices.index(child_service[0])
   graph[parent_service[0]][child_service[0]] = 1  
