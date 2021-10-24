@@ -15,7 +15,7 @@ queue = list()
 
 def findpartitions(partitions, nginx_index, parent_child, visited,graph,vertices):
   # curr_index = nginx_index
-  queue.append(nginx_index, 0)
+  queue.append([nginx_index, 0])
   partitions = [[nginx_index]]
 
   while queue:
@@ -58,7 +58,7 @@ for item in r.json()["data"]:
     item["parent"] = "nginx-thrift"
   if item["child"] == "nginx-web-server":
     item["child"] = "nginx-thrift"
-    
+
   parent_service = [i for i in range(len(vertices)) if item["parent"] in vertices[i]]
   print(parent_service)
   child_service = [i for i in range(len(vertices)) if item["child"] in vertices[i]]
