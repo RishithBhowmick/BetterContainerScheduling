@@ -37,12 +37,12 @@ def findpartitions(partitions, nginx_index, parent_child, visited,graph,vertices
 
   print(partitions)
       
-client = docker.from_env()
-containers = client.containers.list()
-vertices = [container.name for container in containers if container.name not in ["jaeger","prometheus","grafana"]]
+# client = docker.from_env()
+# containers = client.containers.list()
+# vertices = [container.name for container in containers if container.name not in ["jaeger","prometheus","grafana"]]
 
-vertices_no = len(vertices)
-graph = [[0 for _ in range(len(vertices))] for _ in range(len(vertices))]
+# vertices_no = len(vertices)
+# graph = [[0 for _ in range(len(vertices))] for _ in range(len(vertices))]
 
 r = requests.get("http://35.230.89.174:16686/api/dependencies")
 
@@ -59,9 +59,9 @@ for item in r.json()["data"]:
   print(parent_service)
   child_service = [i for i in range(len(vertices)) if item["child"] in vertices[i]]
   print(child_service)
-  i1 = vertices.index(parent_service[0])
-  i2 = vertices.index(child_service[0])
-  graph[i1][i2] = 1  
+  # i1 = vertices.index(parent_service[0])
+  # i2 = vertices.index(child_service[0])
+  graph[parent_service[0]][child_service[0]] = 1  
   
 parent_child = dict()
 nginx_index = -1
