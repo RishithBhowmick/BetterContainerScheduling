@@ -9,7 +9,10 @@ from datetime import datetime
 
 queue = list()
 
-# def get_service(container,vertices):
+def get_utilisation(container_name,container_list):
+  req_container = [i for i in container_list if i.name==container_name]
+  utilisation = get_utilisation(req_container[0])
+  return utilisation
 
 
 
@@ -19,7 +22,7 @@ def findpartitions(partitions, nginx_index, parent_child, visited,graph,vertices
   partitions = [[vertices[nginx_index]]]
 
   while queue:
-    print(queue)
+    # print(queue)
     curr_index, part_level = queue.pop(0)
     #print("Printing",parent_child[vertices[curr_index]])
 
@@ -34,17 +37,17 @@ def findpartitions(partitions, nginx_index, parent_child, visited,graph,vertices
             partitions.append(temp)
             queue.append([i, len(partitions)-1])
           visited[i] = 1
-  print(graph)
-  print(partitions)
+  # print(graph)
+  return partitions
       
 client = docker.from_env()
 containers = client.containers.list()
 vertices = [container.name for container in containers if container.name not in ["jaeger","prometheus","grafana"]]
-print(vertices)
+# print(vertices)
 vertices_no = len(vertices)
 graph = [[0 for _ in range(len(vertices))] for _ in range(len(vertices))]
 
-r = requests.get("http://35.230.89.174:16686/api/dependencies")
+r = requests.get("http://34.83.243.141:16686/api/dependencies")
 
 
 for item in r.json()["data"]:
@@ -85,4 +88,12 @@ for i in range(vertices_no):
 
 partitions = []
 visited=[0 for i in range(len(vertices))]
-findpartitions(partitions, nginx_index,parent_child, visited,graph,vertices)
+partitions = findpartitions(partitions, nginx_index,parent_child, visited,graph,vertices)
+
+print(partitions)
+utilisation_partitions = [[get_utilisation(container) for container in partition] for partition in partitions]
+print(utilisation_partitions)
+
+
+
+
