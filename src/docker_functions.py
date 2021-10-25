@@ -24,3 +24,8 @@ def cpu_utilisation(container):
             return percent
     else:
          return None
+
+
+def get_container_from_name(container_name,container_list):    
+  req_container = [i for i in container_list if i.name==container_name]  
+  return req_container[0]
