@@ -14,7 +14,8 @@ num_containers = len(all_containers)
 with open("partitions.json","r") as f:
     partitions = json.loads(f.read())
 
-containers_in_partition = [[get_container_from_name(container,all_containers) for container in partitions[partition]] for partition in partitions.keys()]
+containers_in_partition = {partition:[get_container_from_name(container,all_containers) for container in partitions[partition]] for partition in partitions.keys()}
+
 print(containers_in_partition)
 while True:
     container_utilisation_dict = dict()           
@@ -37,9 +38,10 @@ while True:
         shares_per_partition = {partition:(partition_utilisation[partition]/sum(partition_utilisation.values()))*1024 for partition in partition_utilisation.keys()}
         print(shares_per_partition)
         
-        # for partition,containers in partitions.items():
-        #     for container in containers:
-        #         new_shares = shares_per_partition[int(partition)]
+        for partition,containers in containers_in_partition.items():            
+            for container in containers:
+                new_shares = (container_utilisation_dict[container]/partition_utilisation[partition])*shares_per_partition[partition]
+                print(container,new_shares)
 
 
         # minimum_utilisation = container_utilisation_dict[min(container_utilisation_dict,key = container_utilisation_dict.get)]  
