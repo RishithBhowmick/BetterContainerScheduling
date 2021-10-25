@@ -91,7 +91,7 @@ visited=[0 for i in range(len(vertices))]
 partitions = findpartitions(partitions, nginx_index,parent_child, visited,graph,vertices)
 
 print(partitions)
-utilisation_partitions = [[get_utilisation(container,vertices) for container in partition] for partition in partitions]
+utilisation_partitions = [[get_utilisation(container,containers) for container in partition] for partition in partitions]
 print(utilisation_partitions)
 
 
