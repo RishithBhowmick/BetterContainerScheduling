@@ -5,7 +5,7 @@ from docker_functions import *
 from  concurrent.futures import ThreadPoolExecutor,as_completed
 from datetime import datetime
 import json 
-
+import os,math
 num_cores = os.cpu_count()
 
 client = docker.from_env()
@@ -44,7 +44,7 @@ while True:
 
 
             for container in containers:
-                new_shares = (container_utilisation_dict[container]/partition_utilisation[partition])*shares_per_partition[partition]
+                new_shares = math.floor((container_utilisation_dict[container]/partition_utilisation[partition])*shares_per_partition[partition])
                 print(container,new_shares)
                 container.update(cpuset_cpus = f"{core_no}-{core_no+required_cores-1}")
             core_no+=required_cores
