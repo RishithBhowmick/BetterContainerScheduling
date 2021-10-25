@@ -91,8 +91,17 @@ visited=[0 for i in range(len(vertices))]
 partitions = findpartitions(partitions, nginx_index,parent_child, visited,graph,vertices)
 
 print(partitions)
-utilisation_partitions = [[get_utilisation(container,containers) for container in partition] for partition in partitions]
-print(utilisation_partitions)
+# utilisation_partitions = [[get_utilisation(container,containers) for container in partition] for partition in partitions]
+# print(utilisation_partitions)
+partitions_dict = dict()
+for i,ele in enumerate(partitions):
+  partitions_dict[i] = ele
+
+
+with open("partitions.json","w" ) as f:
+  f.write(json.dumps(partitions_dict))
+
+
 
 
 
