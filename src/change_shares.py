@@ -42,7 +42,7 @@ while True:
             for container in containers:
                 new_shares = (container_utilisation_dict[container]/partition_utilisation[partition])*shares_per_partition[partition]
                 print(container,new_shares)
-
+                container.update(cpu_shares = int(new_shares))
 
         # minimum_utilisation = container_utilisation_dict[min(container_utilisation_dict,key = container_utilisation_dict.get)]  
         # for container,utilisation in container_utilisation_dict.items():
