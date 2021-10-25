@@ -12,7 +12,7 @@ client = docker.from_env()
 all_containers = client.containers.list()
 num_containers = len(all_containers)
 with open("partitions.json","r") as f:
-    partitions = json.load(f.read())
+    partitions = json.loads(f.read())
 
 while True:
     container_utilisation_dict = dict()           
