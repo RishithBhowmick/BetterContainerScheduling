@@ -44,7 +44,7 @@ while True:
 
 
             for container in containers:
-                new_cpus = math.floor((container_utilisation_dict[container]/partition_utilisation[partition])*required_cores)
+                new_cpus = (container_utilisation_dict[container]/partition_utilisation[partition])*required_cores
                 print(container,new_cpus)
                 # container.update(cpuset_cpus = f"{core_no}-{core_no+required_cores-1}")
                 os.system(f"docker update --cpus={new_cpus} --cpuset-cpus={core_no}-{core_no+required_cores-1} {container.id}")
