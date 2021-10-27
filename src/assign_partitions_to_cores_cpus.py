@@ -44,9 +44,10 @@ while True:
 
 
             for container in containers:
-                new_shares = math.floor((container_utilisation_dict[container]/partition_utilisation[partition])*shares_per_partition[partition])
-                print(container,new_shares)
-                container.update(cpuset_cpus = f"{core_no}-{core_no+required_cores-1}")
+                new_cpus = math.floor((container_utilisation_dict[container]/partition_utilisation[partition])*required_cores)
+                print(container,new_cpus)
+                # container.update(cpuset_cpus = f"{core_no}-{core_no+required_cores-1}")
+                os.system(f"docker update --cpus={new_cpus} --cpuset-cpus={core_no}-{core_no+required_cores-1} {container.id}")
             core_no+=required_cores
 
         # minimum_utilisation = container_utilisation_dict[min(container_utilisation_dict,key = container_utilisation_dict.get)]  
