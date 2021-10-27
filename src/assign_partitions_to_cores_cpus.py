@@ -61,4 +61,4 @@ while True:
     except Exception as e:
         print(str(e),e.__traceback__.tb_lineno)
         pass
-    time.sleep(10)
+    time.sleep(5)
