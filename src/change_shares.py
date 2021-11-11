@@ -41,7 +41,7 @@ while True:
         for partition,containers in containers_in_partition.items():            
             for container in containers:
                 new_shares = (container_utilisation_dict[container]/partition_utilisation[partition])*shares_per_partition[partition]
-                print(container,new_shares)
+                print(container,new_shares,container_utilisation_dict[container])
                 container.update(cpu_shares = int(new_shares))
 
         # minimum_utilisation = container_utilisation_dict[min(container_utilisation_dict,key = container_utilisation_dict.get)]  
@@ -55,4 +55,4 @@ while True:
     except Exception as e:
         print(str(e),e.__traceback__.tb_lineno)
         pass
-    time.sleep(5)
+    time.sleep(3)
