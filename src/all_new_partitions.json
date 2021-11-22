@@ -1,0 +1,27 @@
+{
+    "user_timeline_service": [
+        "post-storage-service",
+        "user-timeline-service",
+        "nginx-web-server"
+    ],
+    "home_timeline_service": [
+        "home-timeline-service",
+        "nginx-web-server",
+        "post-storage-service"
+    ],
+    "compose_post_service": [
+        "nginx-web-server",
+        "home-timeline-service",
+        "media-service",
+        "post-storage-service",
+        "url-shorten-service",
+        "compose-post-service",
+        "user-mention-service",
+        "social-graph-service",
+        "text-service",
+        "user-service",
+        "user-timeline-service",
+        "unique-id-service"
+    ]
+}
+
