@@ -7,6 +7,8 @@ from itertools import chain
 with open("all_new_partitions.json","r") as f:
     all_partitions = json.loads(f.read())
 #print(all_partitions)
+
+
 all_partitions_with_ids = dict()
 def get_containers_in_service(service_name,container_list):        
    containers = [i.id for i in container_list if service_name in i.name]
