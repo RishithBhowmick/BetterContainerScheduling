@@ -21,7 +21,7 @@ dependencies["user-timeline-service"] = [i['serviceName'] for i in user_timeline
 dependencies["home-timeline-service"] = [i['serviceName'] for i in home_timeline_trace["processes"].values()]
 dependencies["compose-post-service"] = [i['serviceName'] for i in compose_post_trace["processes"].values()]
 
-pprint(dependencies)
+#pprint(dependencies)
 
 def get_container_from_name(container_name,container_list):    
   req_container = [i for i in container_list if i.name==container_name]  
